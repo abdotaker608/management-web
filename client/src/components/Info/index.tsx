@@ -67,7 +67,7 @@ const Info = (_: {}, ref: React.ForwardedRef<HTMLDivElement>) => {
                     minH={100}
                 >
                     <Image
-                        src="/kids.jpg"
+                        src="/kids.svg"
                         w="100%"
                         maxW={{ base: "350px", lg: "450px" }}
                     />

@@ -40,7 +40,7 @@ const main = async () => {
             res.send(tutorial);
         });
 
-    app.listen(8000);
+    app.listen(process.env.PORT || 8000, "0.0.0.0");
 };
 
 main();
