@@ -16,9 +16,7 @@ const Header: React.FC<Props> = ({ infoRef }) => {
     }, []);
 
     useEffect(() => {
-        window.addEventListener("load", loadVideoSrc);
-
-        return () => window.removeEventListener("load", loadVideoSrc);
+        window.onload = loadVideoSrc;
     }, [loadVideoSrc]);
 
     const scrollToInfo = useCallback(() => {
