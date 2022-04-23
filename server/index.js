@@ -2,7 +2,12 @@ require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const { MONGO_USER, MONGO_PASS, MONGO_AUTH_SOURCE } = require("./config/mongo");
+const {
+    MONGO_USER,
+    MONGO_PASS,
+    MONGO_AUTH_SOURCE,
+    MONGO_HOST,
+} = require("./config/mongo");
 const { Tutorial } = require("./models/Tutorial");
 
 const main = async () => {
@@ -10,7 +15,7 @@ const main = async () => {
     const app = express();
 
     //Connect to mongoDB
-    await mongoose.connect("mongodb://localhost:27017/kidmania", {
+    await mongoose.connect(MONGO_HOST, {
         user: MONGO_USER,
         pass: MONGO_PASS,
         authSource: MONGO_AUTH_SOURCE,
