@@ -4,23 +4,16 @@ import React from "react";
 import ReactPlayer from "react-player";
 import { Tutorial as TutorialShape } from "src/types";
 
-const Tutorial: React.FC<TutorialShape> = ({ _id, title, url, createdAt }) => {
+const Tutorial: React.FC<TutorialShape> = ({ title, url, createdAt }) => {
     const [isLargerThan768] = useMediaQuery("(min-width: 768px)");
 
     const sinceCreatedAt = moment(createdAt).fromNow();
 
-    const requestFullScreen = () => {
-        document
-            .getElementById(_id)
-            ?.querySelector("iframe")
-            ?.requestFullscreen();
-    };
-
     return (
-        <Box id={_id} display={{ md: "flex" }} gap={4}>
+        <Box display={{ md: "flex" }} gap={4}>
             <Box width={{ base: "100%", md: 150 }} height={{ md: 150 }}>
                 <ReactPlayer
-                    url={url + "?version=3"}
+                    url={url}
                     width="100%"
                     {...(isLargerThan768 ? { height: "100%" } : {})}
                     controls
@@ -32,7 +25,6 @@ const Tutorial: React.FC<TutorialShape> = ({ _id, title, url, createdAt }) => {
                             },
                         },
                     }}
-                    onPlay={requestFullScreen}
                 />
             </Box>
             <Box textAlign={{ base: "center", md: "start" }} pt={{ base: 4 }}>
