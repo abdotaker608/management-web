@@ -1,4 +1,4 @@
-# You can view an online demo [here](https://mydemo.herokuapp.com)
+# You can view an online demo [here](https://kidmania.pages.dev/)
 
 # Run the porject locally:
 
