@@ -29,8 +29,8 @@ const Info = (_: {}, ref: React.ForwardedRef<HTMLDivElement>) => {
                 ref={ref}
                 display="flex"
                 flexDir={{ base: "column", lg: "row" }}
-                alignItems={{ base: "center", lg: "flex-start" }}
-                gap={{ base: 12, lg: 32 }}
+                alignItems="center"
+                gap={{ base: 0, lg: 32 }}
                 overflowX="hidden"
             >
                 <Box textAlign={{ base: "center", lg: "start" }}>
