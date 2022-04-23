@@ -23,9 +23,11 @@ const Tutorial: React.FC<TutorialShape> = ({ _id, title, url, createdAt }) => {
                     url={url + "?version=3"}
                     width="100%"
                     {...(isLargerThan768 ? { height: "100%" } : {})}
+                    controls
                     config={{
                         youtube: {
                             playerVars: {
+                                controls: 1,
                                 enablejsapi: 1,
                             },
                         },

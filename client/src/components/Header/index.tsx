@@ -1,6 +1,6 @@
 import { Box, Button, Heading, useMediaQuery } from "@chakra-ui/react";
-import React, { useCallback, useEffect, useState } from "react";
-import ReactPlayer from "react-player";
+import React, { useCallback } from "react";
+import ReactPlayer from "react-player/lazy";
 
 interface Props {
     infoRef: React.RefObject<HTMLDivElement>;
@@ -8,16 +8,6 @@ interface Props {
 
 const Header: React.FC<Props> = ({ infoRef }) => {
     const [isLargerThan1024px] = useMediaQuery("(min-width: 1024px)");
-
-    const [videoSrc, setVideoSrc] = useState("");
-
-    const loadVideoSrc = useCallback(() => {
-        setVideoSrc("https://vimeo.com/387994351");
-    }, []);
-
-    useEffect(() => {
-        window.onload = loadVideoSrc;
-    }, [loadVideoSrc]);
 
     const scrollToInfo = useCallback(() => {
         if (infoRef.current) {
@@ -74,24 +64,22 @@ const Header: React.FC<Props> = ({ infoRef }) => {
             </Box>
             {isLargerThan1024px && (
                 <Box boxShadow="lg">
-                    {videoSrc && (
-                        <ReactPlayer
-                            url={videoSrc}
-                            playsinline
-                            loop
-                            muted
-                            config={{
-                                vimeo: {
-                                    playerOptions: {
-                                        playsinline: 1,
-                                        autoplay: 1,
-                                        loop: 1,
-                                        muted: 1,
-                                    },
+                    <ReactPlayer
+                        url="https://vimeo.com/387994351"
+                        playsinline
+                        loop
+                        muted
+                        config={{
+                            vimeo: {
+                                playerOptions: {
+                                    playsinline: 1,
+                                    autoplay: 1,
+                                    loop: 1,
+                                    muted: 1,
                                 },
-                            }}
-                        />
-                    )}
+                            },
+                        }}
+                    />
                 </Box>
             )}
         </Box>
