@@ -7,6 +7,7 @@
 -   Under `/server` create a `.env` and add the following
 
     ```
+    MONGO_HOST={{YOUR_MONGODB_HOST}}
     MONGO_USER={{YOUR_MONGODB_USERNAME}}
     MONGO_PASS={{YOUR_MONGODB_PASSWORD}}
     MONGO_AUTH_SOURCE={{AUTH_DATABASE}}
